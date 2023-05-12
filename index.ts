@@ -7,13 +7,14 @@ dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 4000;
+const SpaceDammersFrontendDomain = process.env.SPACE_DAMMERS_FRONTEND_DOMAIN || "http://localhost:3000";
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     allowEIO3: true,
     cors: {
         methods: ["GET", "POST"],
         credentials: true,
-        origin: ['http://localhost:3000']
+        origin: ['http://localhost:3000', SpaceDammersFrontendDomain]
     },
 });
 
@@ -91,6 +92,7 @@ io.on("connection", function (socket) {
 
 // Webclient backend
 app.get("/", (req: Request, res: Response) => {
+    res.send("Hello World!");
     res.status(200);
 });
 
