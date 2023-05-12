@@ -91,7 +91,7 @@ io.on("connection", function (socket) {
 }); 
 
 // Webclient backend
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (req, res) => {
     res.send("Hello World!");
     res.status(200);
 });
