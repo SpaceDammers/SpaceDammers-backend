@@ -14,7 +14,7 @@ const io = new Server(httpServer, {
     cors: {
         methods: ["GET", "POST"],
         credentials: true,
-        origin: ['http://localhost:3000', SpaceDammersFrontendDomain]
+        origin: ['http://localhost:3000', `${ SpaceDammersFrontendDomain }`]
     },
 });
 
