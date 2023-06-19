@@ -3,7 +3,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config({path: __dirname + '/.env'});
 
 const app: Express = express();
 const port = process.env.PORT || 4000;
@@ -14,7 +14,7 @@ const io = new Server(httpServer, {
     cors: {
         methods: ["GET", "POST"],
         credentials: true,
-        origin: ['http://localhost:3000', `${ SpaceDammersFrontendDomain }`]
+        origin: ['http://localhost:3000', SpaceDammersFrontendDomain]
     },
 });
 
